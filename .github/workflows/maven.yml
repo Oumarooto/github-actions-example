@@ -6,6 +6,8 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
+# No Change about Version
+
 name: Project Java CI CD Flow
 
 on:
@@ -29,4 +31,31 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: keimar/springboot-github-action-cicd
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
+
+#    - name: Login to your dockerhub
+#      run: cmd
+#    - name: Build a docker image
+#      run: cmd
+#    - name: Push that image to dockerhub
+#      run: mvn clean install
+#
+#
+##1. Login to your dockerhub
+##2. Build a docker image
+##3. Push that image to dockerhub
+
+# https://github.com/marketplace/actions/docker-build-push-action
 

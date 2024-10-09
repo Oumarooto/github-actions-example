@@ -21,7 +21,9 @@ public class SchoolController {
 //git commit -m "first commit"
 //git branch -M main
 //git remote add origin git@github.com:Oumarooto/github-actions-example.git
-//git push -u origin main
+//
+
+// git pull origin prod
 
 
 
