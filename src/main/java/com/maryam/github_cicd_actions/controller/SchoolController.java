@@ -1,5 +1,6 @@
 package com.maryam.github_cicd_actions.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +9,8 @@ public class SchoolController {
 
 
     @GetMapping("/welcome")
-    public String welcome(){
-        return "Welcome to my School";
+    public String welcome(HttpServletRequest request){
+        return "Welcome to my School. My session ID is : "+request.getSession().getId();
     }
 }
 
